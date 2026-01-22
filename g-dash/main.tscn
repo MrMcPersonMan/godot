@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://wdop0xd4e15b"]
+
+[ext_resource type="PackedScene" uid="uid://dmp4nsjgqnw4w" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dcgfbx6hxay54" path="res://icon.svg" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://b6m66x2efs0yv" path="res://pixilart-sprite(2).png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://clfhj6d1ejjss" path="res://pixil-frame-0(5).png" id="4_1bvp3"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lquwl"]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_1bvp3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(605, 206)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.2, 0.2)
+repeat_size = Vector2(1280, 1280)
+
+[node name="Icon" type="Sprite2D" parent="Parallax2D"]
+scale = Vector2(10, 10)
+texture = ExtResource("3_1bvp3")
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(51, -122)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(0.125, 0.125)
+tile_set = SubResource("TileSet_lquwl")
+collision_visibility_mode = 2
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(767, 0)
+repeat_times = 2
+
+[node name="PixilFrame0(5)" type="Sprite2D" parent="Parallax2D2"]
+texture_repeat = 2
+position = Vector2(799, 128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_1bvp3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(71.5, 105)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="CanvasLayer"]
+offset_left = 971.0
+offset_top = 468.0
+offset_right = 1079.0
+offset_bottom = 567.0
+edit_alpha = false
+edit_intensity = false
+
+[connection signal="color_changed" from="CanvasLayer/ColorPickerButton" to="player" method="_on_color_picker_button_color_changed" flags=18]

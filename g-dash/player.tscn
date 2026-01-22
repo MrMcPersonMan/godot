@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmp4nsjgqnw4w"]
+
+[ext_resource type="Texture2D" uid="uid://cqq56qlfedjtr" path="res://pixil-frame-0(4).png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://c3kd8sx57uwxj" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://dcckswapvvywm" path="res://pixilart-sprite(3).png" id="3_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(3072, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvl01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4flbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hs0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jxqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw050")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_i3pqv"]
+colors = PackedColorArray(1.2219125, 1.2219125, 1.2219125, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hqtel"]
+gradient = SubResource("Gradient_i3pqv")
+width = 8
+height = 8
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_limits = [0.99, 1.0, 0.99, 1.0]
+_data = [Vector2(0.99, 0.9951751), 0.0, -0.06747747, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.11120313, 0.121182896)
+sprite_frames = SubResource("SpriteFrames_nvl01")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, -232)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-30.999998, 23.999998)
+scale = Vector2(0.2, 0.2)
+amount = 50
+texture = SubResource("GradientTexture2D_hqtel")
+lifetime = 1.84
+preprocess = 0.4
+randomness = 0.18
+direction = Vector2(0, -1)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 625.0
+scale_amount_min = 0.0
+scale_amount_curve = SubResource("Curve_i3pqv")
