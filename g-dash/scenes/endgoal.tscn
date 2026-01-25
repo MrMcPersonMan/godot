@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgfxarj55skbu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4xvg6"]
+normal = Vector2(-0.997104, 0.076050304)
+
+[node name="endgoal" type="Area2D"]
+position = Vector2(51, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_4xvg6")

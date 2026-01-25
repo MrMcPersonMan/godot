@@ -5,12 +5,13 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1257.24444
 var  startingPos = 0
 var cameraPos = 0
-var mode = 1
+@export var mode = 3
 var worldGrav = 1
 var modeGrav = 1
-const trail = preload("res://trail.tscn")
+const trail = preload("res://scenes/trail.tscn")
 var t = null
 var line = null
+
 
 func _ready() -> void:
 	startingPos = position
@@ -27,7 +28,9 @@ func _physics_process(delta: float) -> void:
 	velocity.x = 10.4 * 64 
 	
 	velocity += get_gravity() * delta * worldGrav * modeGrav
-
+	
+	$AnimatedSprite2D.flip_v = (worldGrav == -1)
+	
 	if mode == 1:
 		if not is_on_floor():
 			$CPUParticles2D.speed_scale = 0
@@ -54,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if mode == 4:
 		$AnimatedSprite2D.rotation += delta * 4 * modeGrav * worldGrav
 		if Input.is_action_just_pressed("click") and touchingGround():
-			modeGrav *= -1
+			worldGrav *= -1
 		
 	
 	if mode == 5:
@@ -71,13 +74,13 @@ func _physics_process(delta: float) -> void:
 	if mode == 6:
 		$AnimatedSprite2D.rotation = atan(velocity.y/velocity.x)
 		if Input.is_action_just_pressed("click"):
-			modeGrav *= -1
+			worldGrav *= -1
 			
 	if mode == 7:
 		if Input.is_action_just_pressed("click") and touchingGround():
 			print("===========")
-			modeGrav *= -1
-			move_and_collide(Vector2(0,10000*modeGrav))
+			worldGrav *= -1
+			move_and_collide(Vector2(0,10000*worldGrav))
 			
 
 	move_and_slide()
@@ -103,11 +106,14 @@ func updateCamera():
 		$Camera2D.position.y += (90 - $Camera2D.position.y)/10
 		print((90-$Camera2D.position.y))
 		cameraPos = $Camera2D.global_position.y
-		
+		if $Camera2D.position.y > 200:
+			$Camera2D.position.y = 200
 	elif $Camera2D.position.y < -100:
 		$Camera2D.position.y += (-90 - $Camera2D.position.y)/10
 		print((-90 - $Camera2D.position.y))
 		cameraPos = $Camera2D.global_position.y
+		if $Camera2D.position.y < -200:
+			$Camera2D.position.y = -200
 
 func touchingGround():
 	if modeGrav*worldGrav == 1:
@@ -124,3 +130,5 @@ func touchingGround():
 
 func _on_color_picker_button_color_changed(color: Color, source: ColorPickerButton) -> void:
 	$CPUParticles2D.color = source.color
+	get_node("/root/Node2D/Parallax2D/Sprite2D").modulate = source.color
+	get_node("/root/Node2D/Parallax2D2/Sprite2D").modulate = source.color

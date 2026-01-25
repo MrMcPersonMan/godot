@@ -1,0 +1,174 @@
+[gd_scene load_steps=18 format=3 uid="uid://g2nvque86ym6"]
+
+[ext_resource type="Texture2D" uid="uid://cb8q5qanxyk33" path="res://assets/Easy.webp" id="1_sie1v"]
+[ext_resource type="Texture2D" uid="uid://lhlsrpw5olj1" path="res://assets/Demon.webp" id="2_20kip"]
+[ext_resource type="Texture2D" uid="uid://c14kkwb3nd5pk" path="res://assets/Hard.webp" id="3_awot5"]
+[ext_resource type="Texture2D" uid="uid://dvie7a1lqjdsb" path="res://assets/Harder.webp" id="4_cg6tw"]
+[ext_resource type="Texture2D" uid="uid://rx38hb3gymfb" path="res://assets/Insane.webp" id="5_viy2j"]
+[ext_resource type="Texture2D" uid="uid://lfxqm2k3cwjv" path="res://assets/EasyDemon.webp" id="6_5gpt8"]
+[ext_resource type="Texture2D" uid="uid://ctrxcamluoeb0" path="res://assets/Normal.webp" id="6_a0iki"]
+[ext_resource type="Texture2D" uid="uid://8uv57k714bhk" path="res://assets/MediumDemon.webp" id="7_qno7s"]
+[ext_resource type="Texture2D" uid="uid://qnvlbaei43n8" path="res://assets/InsaneDemon.webp" id="9_lmkka"]
+[ext_resource type="Texture2D" uid="uid://c1x2j6qsc4isd" path="res://assets/ExtremeDemon.webp" id="10_61v4l"]
+[ext_resource type="Texture2D" uid="uid://7d8wf6u83neh" path="res://assets/SecretCoin.webp" id="11_pqvxd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5gpt8"]
+bg_color = Color(0.6, 0.6, 0.6, 0.62352943)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qno7s"]
+bg_color = Color(0.6, 0.6, 0.6, 0.62352943)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lmkka"]
+bg_color = Color(0.82, 0.82, 0.82, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+corner_detail = 4
+
+[sub_resource type="Theme" id="Theme_61v4l"]
+Label/constants/outline_size = 2
+Panel/styles/panel = SubResource("StyleBoxFlat_5gpt8")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 13
+ProgressBar/font_sizes/font_size = 20
+ProgressBar/styles/background = SubResource("StyleBoxFlat_qno7s")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_lmkka")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqvxd"]
+line_spacing = 0.0
+font_size = 55
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yww6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sie1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0iki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_awot5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cg6tw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_viy2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5gpt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qno7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_20kip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lmkka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_61v4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_61v4l")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(759, 496)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 143)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 34.0
+offset_right = -87.0
+offset_bottom = -33.0
+text = "radio crazy"
+label_settings = SubResource("LabelSettings_pqvxd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer/VBoxContainer/Panel"]
+position = Vector2(174, 76)
+scale = Vector2(1.5857143, 1.5857143)
+sprite_frames = SubResource("SpriteFrames_4yww6")
+frame = 4
+frame_progress = 0.946175
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/Panel"]
+position = Vector2(690.75, 126.75)
+scale = Vector2(0.18437491, 0.18437491)
+texture = ExtResource("11_pqvxd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/VBoxContainer/Panel"]
+position = Vector2(659.75, 126.75)
+scale = Vector2(0.18437491, 0.18437491)
+texture = ExtResource("11_pqvxd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CenterContainer/VBoxContainer/Panel"]
+position = Vector2(628.75, 126.75)
+scale = Vector2(0.18437491, 0.18437491)
+texture = ExtResource("11_pqvxd")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+Normal Mode"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+value = 65.0
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+practice Mode"
+horizontal_alignment = 1
+
+[node name="ProgressBar2" type="ProgressBar" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+value = 22.0
