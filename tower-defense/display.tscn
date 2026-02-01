@@ -1,0 +1,276 @@
+[gd_scene load_steps=14 format=3 uid="uid://dokba2rub0esx"]
+
+[ext_resource type="Script" uid="uid://dlygn3q1tdxj1" path="res://display.gd" id="1_ru5jf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhqpv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g403"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f13yu"]
+bg_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.81666666, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iri5h"]
+bg_color = Color(0.25323758, 0.2532376, 0.2532375, 0.7490196)
+corner_radius_top_left = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru5jf"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mytll"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="Theme" id="Theme_iri5h"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_yhqpv")
+Button/styles/normal = SubResource("StyleBoxFlat_1g403")
+Button/styles/pressed = SubResource("StyleBoxFlat_f13yu")
+Label/font_sizes/font_size = 29
+Panel/styles/panel = SubResource("StyleBoxFlat_iri5h")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 3
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ru5jf")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_mytll")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5pdj"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(1, 0.81666666, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlkrk"]
+bg_color = Color(0.7441813, 0.74418133, 0.7441811, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbhi7"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txl3f"]
+bg_color = Color(0.52642256, 0.5264226, 0.52642244, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 2
+border_color = Color(0.9523199, 0.7841284, 1.540184e-06, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_txl3f"]
+Button/styles/focus = SubResource("StyleBoxFlat_x5pdj")
+Button/styles/hover = SubResource("StyleBoxFlat_rlkrk")
+Button/styles/normal = SubResource("StyleBoxFlat_tbhi7")
+Button/styles/pressed = SubResource("StyleBoxFlat_txl3f")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_iri5h")
+script = ExtResource("1_ru5jf")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75500005
+anchor_right = 0.99300003
+anchor_bottom = 1.0
+offset_left = 0.2399292
+offset_right = 8.063965
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18800001
+anchor_right = 1.0
+offset_left = -32.016003
+offset_top = 35.0
+offset_right = 1.0
+offset_bottom = 613.0
+grow_horizontal = 2
+
+[node name="home" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+size_flags_vertical = 4
+text = "home"
+
+[node name="surrender" type="Button" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+size_flags_vertical = 4
+text = "surrender
+"
+
+[node name="Control" type="Control" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Panel/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -46.0
+offset_top = 3.0
+offset_right = -9.0
+offset_bottom = 113.0
+grow_horizontal = 0
+value = 100.0
+rounded = true
+allow_greater = true
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.75200003
+offset_left = 6.0
+offset_top = 40.0
+offset_right = -0.024002075
+offset_bottom = 80.0
+grow_horizontal = 0
+text = "50/100"
+horizontal_alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(190, 96)
+layout_mode = 2
+theme = SubResource("Theme_txl3f")
+follow_focus = true
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+toggle_mode = true
+text = "hey"
+
+[node name="Button2" type="Button" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+toggle_mode = true
+text = "hey"
+
+[node name="Button3" type="Button" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+toggle_mode = true
+text = "hey"
+
+[node name="HSeparator2" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="pause" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(81, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "pause"
+
+[node name="x2 speed" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(81, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "x2 speed"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75500005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.2399292
+grow_horizontal = 2
+mouse_behavior_recursive = 1
+
+[connection signal="toggled" from="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer/Button" to="Control" method="_on_button_toggled" flags=18]
+[connection signal="toggled" from="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer/Button2" to="Control" method="_on_button_toggled" flags=18]
+[connection signal="toggled" from="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer/Button3" to="Control" method="_on_button_toggled" flags=18]
+[connection signal="toggled" from="Control/Panel/VBoxContainer/HBoxContainer/pause" to="Control" method="_on_pause"]
+[connection signal="toggled" from="Control/Panel/VBoxContainer/HBoxContainer/x2 speed" to="Control" method="_on_x2speed_toggled"]
+[connection signal="mouse_entered" from="Control/ReferenceRect" to="Control" method="_on_mouse_changed" binds= [true]]
+[connection signal="mouse_exited" from="Control/ReferenceRect" to="Control" method="_on_mouse_changed" binds= [false]]
