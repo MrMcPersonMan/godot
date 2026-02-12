@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="tower defense"
-run/main_scene="uid://7smbqjonnf3u"
+config/tags=PackedStringArray("jljljljlj")
+run/main_scene="uid://cvnltlult1fsd"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
-global="*res://globals.gd"
+global="*res://scripts/main scripts/globals.gd"
 
 [global_group]
 

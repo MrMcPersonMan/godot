@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://k2mo3la35n22"]
+
+[ext_resource type="Script" uid="uid://bv5uu6ecliutg" path="res://scripts/tower_button.gd" id="1_47xcd"]
+[ext_resource type="Texture2D" uid="uid://ddxgwhbqpr0y7" path="res://assets/tower defense.icon.png" id="2_47xcd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhqpv"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1g403"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f13yu"]
+bg_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.81666666, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_47xcd"]
+color = Color(0.4, 0.4, 0.4, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yr8b2"]
+bg_color = Color(0.25323758, 0.2532376, 0.2532375, 0.7490196)
+corner_radius_top_left = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru5jf"]
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mytll"]
+bg_color = Color(1, 0, 0, 1)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_47xcd"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_yhqpv")
+Button/styles/normal = SubResource("StyleBoxFlat_1g403")
+Button/styles/pressed = SubResource("StyleBoxFlat_f13yu")
+HSeparator/styles/separator = SubResource("StyleBoxLine_47xcd")
+Label/font_sizes/font_size = 16
+Panel/styles/panel = SubResource("StyleBoxFlat_yr8b2")
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 3
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ru5jf")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_mytll")
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = -1
+anchor_right = 0.069000006
+anchor_bottom = 0.123
+offset_right = -65.48801
+offset_bottom = -64.704
+focus_mode = 0
+theme = SubResource("Theme_47xcd")
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "gun"
+script = ExtResource("1_47xcd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.64000005
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -9.0
+offset_bottom = 2.7999954
+texture = ExtResource("2_47xcd")
+expand_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 31.0
+offset_right = -9.0
+offset_bottom = -45.0
+mouse_filter = 2
+
+[node name="cost" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 54.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

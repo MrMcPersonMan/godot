@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b41m8tffv00af"]
+
+[ext_resource type="Script" uid="uid://o4034op78kqh" path="res://scripts/path.gd" id="1_jnavc"]
+
+[sub_resource type="Curve2D" id="Curve2D_cnff4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -140, 187, 0, 0, 0, 0, -324, 388, 0, 0, 0, 0, -646, 405, 0, 0, 0, 0, -742, 196, 0, 0, 0, 0, -700, 29, 0, 0, 0, 0, -546, -63, 0, 0, 0, 0, -546, -214, 0, 0, 0, 0, -663, -389, 0, 0, 0, 0, -838, -439)
+}
+point_count = 9
+
+[node name="path" type="Path2D"]
+curve = SubResource("Curve2D_cnff4")
+script = ExtResource("1_jnavc")

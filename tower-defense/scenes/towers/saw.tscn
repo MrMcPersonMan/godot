@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci5qnx5mdqicx"]
+
+[ext_resource type="Script" uid="uid://cyakrckm3bwu3" path="res://scripts/towers/saw.gd" id="2_d008l"]
+[ext_resource type="Texture2D" uid="uid://bden4kf7f41vu" path="res://assets/towers/pixilart-sprite(8).png" id="3_4ku6t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8b65"]
+atlas = ExtResource("3_4ku6t")
+region = Rect2(6144, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tse5f"]
+atlas = ExtResource("3_4ku6t")
+region = Rect2(7168, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yv4k5"]
+atlas = ExtResource("3_4ku6t")
+region = Rect2(8192, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lmieu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8b65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tse5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv4k5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_reoe3"]
+length = 0.001
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_nuhkm"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_m2ud2"]
+resource_name = "spin"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"attack"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1.0283654),
+"update": 0,
+"values": [0.0, 3.141592653589793, 6.283185307179586]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:_scaleMult")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 2, -0.072222225, 0, 0, 0, 1, -0.08888888, 0.33333334, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8b65"]
+_data = {
+&"RESET": SubResource("Animation_reoe3"),
+&"idle": SubResource("Animation_nuhkm"),
+&"spin": SubResource("Animation_m2ud2")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
+radius = 1536.0
+
+[node name="saw" type="Node2D" node_paths=PackedStringArray("areas")]
+scale = Vector2(-1, -1)
+script = ExtResource("2_d008l")
+defaultScale = Vector2(1.2, 1.2)
+areas = [NodePath("Area2D")]
+damage = 1
+attackTime = 5
+ToweRange = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_lmieu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_b8b65")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_stebd")
+debug_color = Color(0.98, 0, 0.3920001, 0)
