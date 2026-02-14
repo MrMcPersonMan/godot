@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ditl48x5op6l0"]
+[gd_scene format=3 uid="uid://ditl48x5op6l0"]
 
 [ext_resource type="Script" uid="uid://bsct6muorehsh" path="res://scripts/towers/laser.gd" id="2_brqw7"]
 [ext_resource type="Texture2D" uid="uid://bden4kf7f41vu" path="res://assets/towers/pixilart-sprite(8).png" id="3_lxegh"]
@@ -41,16 +41,16 @@ gradient = SubResource("Gradient_yx136")
 [sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
 radius = 2560.0
 
-[node name="laser" type="Node2D" node_paths=PackedStringArray("areas")]
+[node name="laser" type="Node2D" unique_id=1412509 node_paths=PackedStringArray("areas")]
 script = ExtResource("2_brqw7")
 areas = [NodePath("Area2D"), NodePath("mirrorArea")]
 damage = 1
 ToweRange = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1692140200]
 sprite_frames = SubResource("SpriteFrames_3gdm7")
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line2D" type="Line2D" parent="." unique_id=971271908]
 z_index = 1
 points = PackedVector2Array(0, 0, 0, 0)
 width = 230.0
@@ -58,7 +58,7 @@ default_color = Color(1, 0, 0, 1)
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=280272123]
 z_index = 1
 position = Vector2(-6, 15)
 amount = 2
@@ -73,21 +73,21 @@ scale_amount_max = 3.0
 hue_variation_min = -0.2
 hue_variation_max = 1.0
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=155608063]
 wait_time = 2.0
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=1548471248]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2079039958]
 shape = SubResource("CircleShape2D_stebd")
 debug_color = Color(0.98, 0, 0.3920001, 0)
 
-[node name="mirrorArea" type="Area2D" parent="."]
+[node name="mirrorArea" type="Area2D" parent="." unique_id=1969692710]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="mirrorArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mirrorArea" unique_id=1196115468]
 shape = SubResource("CircleShape2D_stebd")
 debug_color = Color(0.98, 0, 0.3920001, 0)

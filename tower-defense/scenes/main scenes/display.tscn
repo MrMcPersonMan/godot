@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dokba2rub0esx"]
+[gd_scene format=3 uid="uid://dokba2rub0esx"]
 
-[ext_resource type="Script" uid="uid://dlygn3q1tdxj1" path="res://scripts/display.gd" id="1_ru5jf"]
+[ext_resource type="Script" uid="uid://dlygn3q1tdxj1" path="res://scripts/main scripts/display.gd" id="1_ru5jf"]
 [ext_resource type="PackedScene" uid="uid://k2mo3la35n22" path="res://scenes/towerButton.tscn" id="2_1rbqp"]
-[ext_resource type="StyleBox" uid="uid://devilv75gq4cs" path="res://scenes/main scenes/display.tres" id="2_rltkx"]
+[ext_resource type="StyleBox" uid="uid://devilv75gq4cs" path="res://display.tres" id="2_rltkx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhqpv"]
 border_width_left = 2
@@ -163,9 +163,9 @@ Button/styles/hover = SubResource("StyleBoxFlat_rlkrk")
 Button/styles/normal = SubResource("StyleBoxFlat_tbhi7")
 Button/styles/pressed = SubResource("StyleBoxFlat_txl3f")
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=336469579]
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=684413301]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,7 +176,7 @@ mouse_filter = 1
 theme = SubResource("Theme_rltkx")
 script = ExtResource("1_ru5jf")
 
-[node name="Panel" type="Panel" parent="Control"]
+[node name="Panel" type="Panel" parent="Control" unique_id=2114587911]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.75500005
@@ -186,7 +186,7 @@ offset_left = 0.2399292
 offset_right = 8.063965
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Panel" unique_id=1058809276]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.18800001
@@ -198,27 +198,27 @@ offset_bottom = 613.0
 grow_horizontal = 2
 theme = SubResource("Theme_3yhsf")
 
-[node name="home" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="home" type="Button" parent="Control/Panel/VBoxContainer" unique_id=1316770906]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 size_flags_vertical = 4
 text = "home"
 
-[node name="surrender" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="surrender" type="Button" parent="Control/Panel/VBoxContainer" unique_id=995345657]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
 size_flags_vertical = 4
 text = "surrender
 "
 
-[node name="HSeparator3" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="Control/Panel/VBoxContainer" unique_id=554831064]
 layout_mode = 2
 
-[node name="Panel2" type="Panel" parent="Control/Panel/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="Control/Panel/VBoxContainer" unique_id=1732165229]
 custom_minimum_size = Vector2(1, 133)
 layout_mode = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="Control/Panel/VBoxContainer/Panel2"]
+[node name="ProgressBar" type="ProgressBar" parent="Control/Panel/VBoxContainer/Panel2" unique_id=656360255]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -234,7 +234,7 @@ allow_greater = true
 fill_mode = 3
 show_percentage = false
 
-[node name="Panel" type="Panel" parent="Control/Panel/VBoxContainer/Panel2"]
+[node name="Panel" type="Panel" parent="Control/Panel/VBoxContainer/Panel2" unique_id=405736502]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -246,7 +246,7 @@ offset_bottom = 121.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1rbqp")
 
-[node name="Panel2" type="Panel" parent="Control/Panel/VBoxContainer/Panel2"]
+[node name="Panel2" type="Panel" parent="Control/Panel/VBoxContainer/Panel2" unique_id=1122168696]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -258,7 +258,7 @@ offset_bottom = 121.0
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rltkx")
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/Panel2"]
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/Panel2" unique_id=1162145643]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.70600003
@@ -270,11 +270,11 @@ grow_horizontal = 0
 text = "50/100"
 horizontal_alignment = 2
 
-[node name="Panel" type="Panel" parent="Control/Panel/VBoxContainer"]
+[node name="Panel" type="Panel" parent="Control/Panel/VBoxContainer" unique_id=601680725]
 custom_minimum_size = Vector2(219, 45)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/Panel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/Panel" unique_id=775014295]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -284,72 +284,72 @@ offset_right = -4.0
 offset_bottom = -0.005001068
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/Panel/HBoxContainer"]
+[node name="Label" type="Label" parent="Control/Panel/VBoxContainer/Panel/HBoxContainer" unique_id=1467245967]
 layout_mode = 2
 text = "money:"
 
-[node name="money" type="Label" parent="Control/Panel/VBoxContainer/Panel/HBoxContainer"]
+[node name="money" type="Label" parent="Control/Panel/VBoxContainer/Panel/HBoxContainer" unique_id=1969727368]
 layout_mode = 2
 text = "0"
 
-[node name="HSeparator" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Control/Panel/VBoxContainer" unique_id=87057080]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Panel/VBoxContainer" unique_id=239810017]
 custom_minimum_size = Vector2(190, 96)
 layout_mode = 2
 theme = SubResource("Theme_txl3f")
 follow_focus = true
 vertical_scroll_mode = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer/ScrollContainer" unique_id=199883754]
 layout_mode = 2
 
-[node name="gun" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1rbqp")]
+[node name="gun" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=308414441 instance=ExtResource("2_1rbqp")]
 layout_mode = 2
 id = 1
 
-[node name="laser" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1rbqp")]
+[node name="laser" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1107209388 instance=ExtResource("2_1rbqp")]
 layout_mode = 2
 text = "laser"
 id = 2
 
-[node name="saw" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1rbqp")]
+[node name="saw" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1083979516 instance=ExtResource("2_1rbqp")]
 layout_mode = 2
 text = "saw"
 id = 3
 
-[node name="mirror" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" instance=ExtResource("2_1rbqp")]
+[node name="mirror" parent="Control/Panel/VBoxContainer/ScrollContainer/HBoxContainer" unique_id=1681097976 instance=ExtResource("2_1rbqp")]
 layout_mode = 2
 text = "mirror"
 id = 4
 
-[node name="cancel" type="Button" parent="Control/Panel/VBoxContainer"]
+[node name="cancel" type="Button" parent="Control/Panel/VBoxContainer" unique_id=650739497]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 text = "cancel"
 
-[node name="HSeparator2" type="HSeparator" parent="Control/Panel/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Control/Panel/VBoxContainer" unique_id=136015459]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel/VBoxContainer" unique_id=1279563975]
 layout_mode = 2
 
-[node name="pause" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+[node name="pause" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer" unique_id=499448938]
 custom_minimum_size = Vector2(81, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 text = "pause"
 
-[node name="x2 speed" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer"]
+[node name="x2 speed" type="Button" parent="Control/Panel/VBoxContainer/HBoxContainer" unique_id=2083629849]
 custom_minimum_size = Vector2(81, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 text = "x2 speed"
 
-[node name="ReferenceRect" type="ReferenceRect" parent="Control"]
+[node name="ReferenceRect" type="ReferenceRect" parent="Control" unique_id=1949529210]
 visible = false
 layout_mode = 1
 anchors_preset = -1

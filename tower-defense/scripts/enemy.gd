@@ -1,13 +1,15 @@
 extends PathFollow2D
 var end = null
 var pathNum = 1
-@export var type: int
+@export var type:int
 @export var level:int
 @export var health: float
+@export var attackDamage:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimatedSprite2D.frame = type * 4 + level - 5 
+	$AnimatedSprite2D.frame = type
+	$AnimatedSprite2D.modulate = global.enemyColours[level]
 	$ProgressBar.max_value = health
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -18,8 +20,8 @@ func _process(delta: float) -> void:
 		return
 		
 	if get_parent() == end:
-		global.health -= 1
-		global.healthUpdate.emit(global.health)
+		global.health -= attackDamage
+		print("die")
 		queue_free()
 		return
 		
@@ -27,19 +29,18 @@ func _process(delta: float) -> void:
 	reparent(get_parent().next)
 	progress = 0
 		
-func damage(Damage,red):
+func damage(DamageTaken,red):
 	$ProgressBar.visible = true
-	health -= Damage
+	health -= DamageTaken
 	$ProgressBar.value = health
 	if health <= 0:
 		queue_free()
 		return
 		
 	if red:
-		$AnimatedSprite2D.frame = type * 4 - 1
 		$Timer.start()
-	
+		$AnimatedSprite2D.modulate = Color.RED
 
 
 func _on_timer_timeout() -> void:
-	$AnimatedSprite2D.frame = type * 4 + level - 5
+	$AnimatedSprite2D.modulate = global.enemyColours[level]

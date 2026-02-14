@@ -18,10 +18,10 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if global.selectedTower:
 		get_parent().place_tile(self)
 	else:
-		print("no tower selected")
+		pass
 
-func update():
-	if global.selectedTower:
+func update(tower):
+	if tower:
 		$Polygon2D.visible = true
 	else:
 		$Polygon2D.visible = false

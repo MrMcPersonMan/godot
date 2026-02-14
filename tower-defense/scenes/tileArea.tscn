@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://1ehccjcg58nk"]
+[gd_scene format=3 uid="uid://1ehccjcg58nk"]
 
 [ext_resource type="Script" uid="uid://cqs3m46bnaiir" path="res://scripts/tile_area.gd" id="1_ish3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_epaks"]
 size = Vector2(1024, 1024)
 
-[node name="tileArea" type="Area2D"]
+[node name="tileArea" type="Area2D" unique_id=978249446]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_ish3t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1196267532]
 shape = SubResource("RectangleShape2D_epaks")
 debug_color = Color(0, 0.5950001, 0.7, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1288346762]
 color = Color(0, 0, 0, 0.4392157)
 polygon = PackedVector2Array(400, 400, 400, -400, -400, -400, -400, 400)
 

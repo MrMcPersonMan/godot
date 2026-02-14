@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://k2mo3la35n22"]
+[gd_scene format=3 uid="uid://k2mo3la35n22"]
 
 [ext_resource type="Script" uid="uid://bv5uu6ecliutg" path="res://scripts/tower_button.gd" id="1_47xcd"]
-[ext_resource type="Texture2D" uid="uid://ddxgwhbqpr0y7" path="res://assets/tower defense.icon.png" id="2_47xcd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhqpv"]
 border_width_left = 2
@@ -79,7 +78,7 @@ ProgressBar/constants/outline_size = 3
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ru5jf")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_mytll")
 
-[node name="Button" type="Button"]
+[node name="Button" type="Button" unique_id=1911320195]
 custom_minimum_size = Vector2(80, 80)
 anchors_preset = -1
 anchor_right = 0.069000006
@@ -93,7 +92,7 @@ toggle_mode = true
 text = "gun"
 script = ExtResource("1_47xcd")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=594447647]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -103,10 +102,9 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = -9.0
 offset_bottom = 2.7999954
-texture = ExtResource("2_47xcd")
 expand_mode = 1
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="HSeparator" type="HSeparator" parent="." unique_id=572152060]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -117,7 +115,7 @@ offset_right = -9.0
 offset_bottom = -45.0
 mouse_filter = 2
 
-[node name="cost" type="Label" parent="."]
+[node name="cost" type="Label" parent="." unique_id=1405797270]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,16 +1,19 @@
-[gd_scene load_steps=25 format=4 uid="uid://cvnltlult1fsd"]
+[gd_scene format=4 uid="uid://cvnltlult1fsd"]
 
 [ext_resource type="Script" uid="uid://dy0g3l3641cku" path="res://scripts/main scripts/main.gd" id="1_243y7"]
 [ext_resource type="Texture2D" uid="uid://cgb5l5dy7fy1n" path="res://assets/background/pixilart-sprite(9).png" id="2_hxrxh"]
 [ext_resource type="PackedScene" uid="uid://bnekoq15t7p7b" path="res://scenes/towers/gun.tscn" id="4_kcxwd"]
 [ext_resource type="PackedScene" uid="uid://ditl48x5op6l0" path="res://scenes/towers/laser.tscn" id="5_8jrr2"]
-[ext_resource type="Texture2D" uid="uid://c5nh234lugbdi" path="res://assets/pixilart-sprite(5).png" id="6_4ok27"]
-[ext_resource type="PackedScene" uid="uid://b41m8tffv00af" path="res://scenes/path.tscn" id="7_erga3"]
-[ext_resource type="PackedScene" uid="uid://qo8uchk3sljb" path="res://scenes/spawner.tscn" id="8_itmro"]
+[ext_resource type="PackedScene" uid="uid://b41m8tffv00af" path="res://scenes/level structures/path.tscn" id="7_erga3"]
+[ext_resource type="PackedScene" uid="uid://qo8uchk3sljb" path="res://scenes/level structures/route.tscn" id="8_itmro"]
 [ext_resource type="PackedScene" uid="uid://ci5qnx5mdqicx" path="res://scenes/towers/saw.tscn" id="9_rg686"]
+[ext_resource type="Script" uid="uid://woffhwx6omm0" path="res://scripts/level structures/leveltool.gd" id="10_4ok27"]
 [ext_resource type="PackedScene" uid="uid://blxhspidddbc4" path="res://scenes/towers/mirror.tscn" id="10_hxrxh"]
-[ext_resource type="Script" uid="uid://bsaiq0eoadv1m" path="res://scenes/main scenes/tower_tile_map.gd" id="11_8jrr2"]
+[ext_resource type="Script" uid="uid://bsaiq0eoadv1m" path="res://scripts/tower_tile_map.gd" id="11_8jrr2"]
+[ext_resource type="Script" uid="uid://doohpc1e3epj" path="res://scripts/level structures/current_level_runner.gd" id="11_erga3"]
 [ext_resource type="PackedScene" uid="uid://1ehccjcg58nk" path="res://scenes/tileArea.tscn" id="11_kcxwd"]
+[ext_resource type="PackedScene" uid="uid://bf73m6gyd4vp1" path="res://scenes/level structures/enemyspawner.tscn" id="13_erga3"]
+[ext_resource type="PackedScene" uid="uid://dxy4n05ga12l2" path="res://scenes/crystal.tscn" id="14_erga3"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_kcxwd"]
 tile_data = PackedInt32Array(0, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 131073, 196608, 0, 2, 196608, 0, 65538, 196608, 0, 131074, 196608, 0)
@@ -30,54 +33,6 @@ tile_size = Vector2i(512, 512)
 sources/0 = SubResource("TileSetAtlasSource_kcxwd")
 pattern_0 = SubResource("TileMapPattern_kcxwd")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = ExtResource("6_4ok27")
-region = Rect2(0, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = ExtResource("6_4ok27")
-region = Rect2(1024, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("6_4ok27")
-region = Rect2(2048, 0, 1024, 1024)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = ExtResource("6_4ok27")
-region = Rect2(3072, 0, 1024, 1024)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_272bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kek77")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
-_data = {
-"points": PackedVector2Array(206.53537, 49.352524, -206.53537, -49.352524, 869, 93, 470.96738, 7.781229, -470.96738, -7.781229, 335, -101, -9.946629, -82.00099, 9.946629, 82.00099, -137, 99, -148.17372, 0.5383606, 148.17372, -0.5383606, 155, 305, 75.10701, 75.382, -75.10701, -75.382, 295, 148)
-}
-point_count = 5
-
-[sub_resource type="Curve2D" id="Curve2D_272bh"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -65, -178, 0, 0, 0, 0, -202.52277, -59.069977, 0, 0, 0, 0, -357, -82, 0, 0, 0, 0, -505.23657, -146.13223, 0, 0, 0, 0, -591.67017, -132.27086, 0, 0, 0, 0, -666.7372, -89.11511, 0, 0, 0, 0, -737, 48)
-}
-point_count = 7
-
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_eow3j"]
 resource_name = "towers"
 scenes/1/scene = ExtResource("4_kcxwd")
@@ -94,88 +49,130 @@ tile_size = Vector2i(1024, 1024)
 sources/1 = SubResource("TileSetScenesCollectionSource_eow3j")
 sources/2 = SubResource("TileSetScenesCollectionSource_kcxwd")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_1bvp3"]
+_data = {
+"points": PackedVector2Array(206.53537, 49.352524, -206.53537, -49.352524, 869, 93, 470.96738, 7.781229, -470.96738, -7.781229, 335, -101, -9.946629, -82.00099, 9.946629, 82.00099, -137, 99, -148.17372, 0.5383606, 148.17372, -0.5383606, 155, 305, 75.10701, 75.382, -75.10701, -75.382, 295, 148)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_272bh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -65, -178, 0, 0, 0, 0, -202.52277, -59.069977, 0, 0, 0, 0, -357, -82, 0, 0, 0, 0, -505.23657, -146.13223, 0, 0, 0, 0, -591.67017, -132.27086, 0, 0, 0, 0, -666.7372, -89.11511, 0, 0, 0, 0, -737, 48)
+}
+point_count = 7
+
+[node name="Node2D" type="Node2D" unique_id=1352719078]
 script = ExtResource("1_243y7")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1391904670]
 scale = Vector2(0.2, 0.2)
 tile_map_data = PackedByteArray("AAAFAP//AAABAAAAAAAEAP7/AAABAAAAAAAEAP//AAAFAAAAAAADAP7/AAAFAAAAAAACAP3/AAAEAAAAAAABAP3/AAAEAAAAAAAAAP3/AAAEAAAAAAD///3/AAAEAAAAAAD+//3/AAAEAAAAAAAFAP7/AAAFAAAAADAEAP3/AAAFAAAAADADAP3/AAAAAAAAADD9//3/AAAAAAAAADD8//3/AAAFAAAAAFD7//7/AAAFAAAAAFAAAP//AAAFAAAAADAAAAEAAAAFAAAAAGD8/wEAAAAFAAAAAAD7/wAAAAAFAAAAAAD9/wEAAAAAAAAAAAD//wEAAAAAAAAAAAD7////AAAAAAAAAFAAAAAAAAAAAAAAAGD/////AAAFAAAAAFD//wAAAAAAAAAAAFD+/wEAAAAEAAAAAAD9/wAAAAAFAAAAADD9//7/AAAFAAAAAGD8//7/AAABAAAAAAD8/wAAAAABAAAAAAD+////AAADAAAAAAD9////AAADAAAAAAD+//7/AAADAAAAAAD///7/AAADAAAAAAAAAP7/AAADAAAAAAABAP7/AAADAAAAAAACAP7/AAADAAAAAAACAP//AAADAAAAAAABAP//AAADAAAAAAADAP//AAADAAAAAAAEAAAAAAADAAAAAAAEAAEAAAADAAAAAAAEAAIAAAADAAAAAAAAAAIAAAADAAAAAAD//wIAAAADAAAAAAD+/wIAAAADAAAAAAD9/wIAAAADAAAAAAD8/wIAAAADAAAAAAD7/wIAAAADAAAAAAD7/wEAAAADAAAAAAD6/wIAAAADAAAAAAD6/wEAAAADAAAAAAD6/wAAAAADAAAAAAD6////AAADAAAAAAD6//7/AAADAAAAAAD6//3/AAADAAAAAAD7//3/AAADAAAAAAD6//z/AAADAAAAAAD7//z/AAADAAAAAAD8//z/AAADAAAAAAD9//z/AAADAAAAAAD+//z/AAADAAAAAAD///z/AAADAAAAAAAAAPz/AAADAAAAAAABAPz/AAADAAAAAAACAPz/AAADAAAAAAADAPz/AAADAAAAAAAEAPz/AAADAAAAAAAFAPz/AAADAAAAAAAFAP3/AAADAAAAAAAGAPz/AAADAAAAAAAGAP3/AAADAAAAAAAGAP7/AAADAAAAAAAGAP//AAAFAAAAADAFAAAAAAAFAAAAAAAFAAEAAAADAAAAAAAFAAIAAAADAAAAAAAGAAIAAAADAAAAAAAGAAEAAAADAAAAAAAGAAAAAAAFAAAAAGAGAAMAAAADAAAAAAAFAAMAAAADAAAAAAAEAAMAAAADAAAAAAAAAAMAAAADAAAAAAD//wMAAAADAAAAAAD+/wMAAAADAAAAAAD9/wMAAAADAAAAAAD8/wMAAAADAAAAAAD7/wMAAAADAAAAAAAHAAMAAAADAAAAAAAHAAIAAAADAAAAAAAHAAEAAAADAAAAAAAHAAAAAAADAAAAAAAHAP//AAADAAAAAAAHAP7/AAADAAAAAAAHAP3/AAADAAAAAAAHAPz/AAADAAAAAAD+/wAAAAADAAAAAAD8////AAAAAAAAAGD6/wMAAAADAAAAAAABAAMAAAADAAAAAAACAAMAAAADAAAAAAADAAMAAAADAAAAAAABAAAAAAADAAAAAAABAAEAAAADAAAAAAABAAIAAAADAAAAAAACAAAAAAADAAAAAAACAAEAAAADAAAAAAACAAIAAAADAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAADAAIAAAADAAAAAAA=")
 tile_set = SubResource("TileSet_8jrr2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1001444985]
 offset = Vector2(519, 0)
 
-[node name="heart" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.9999962, -1.0000019)
-scale = Vector2(0.14404295, 0.14404295)
-sprite_frames = SubResource("SpriteFrames_4c57u")
-frame = 1
-frame_progress = 0.8717053
-
-[node name="levels" type="Node2D" parent="."]
-
-[node name="paths" type="Node2D" parent="levels"]
-
-[node name="path" parent="levels/paths" instance=ExtResource("7_erga3")]
-position = Vector2(-295, -148)
-curve = SubResource("Curve2D_1bvp3")
-
-[node name="path2" parent="levels/paths" node_paths=PackedStringArray("next") instance=ExtResource("7_erga3")]
-position = Vector2(1313, -102)
-curve = SubResource("Curve2D_272bh")
-next = NodePath("../path")
-
-[node name="path3" parent="levels/paths" instance=ExtResource("7_erga3")]
-position = Vector2(1403, 384)
-
-[node name="level 1" type="Node2D" parent="levels"]
-
-[node name="spawner" parent="levels/level 1" node_paths=PackedStringArray("start", "end") instance=ExtResource("8_itmro")]
-position = Vector2(649, -84)
-start = NodePath("../../paths/path")
-end = NodePath("../../paths/path")
-
-[node name="TileMapLayer2" type="TileMapLayer" parent="."]
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1540090569]
 scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAD7/wEAAgAAAAAAAQD7/wIAAgAAAAAAAQD+/wAAAgAAAAAAAQD+////AgAAAAAAAQD+//7/AgAAAAAAAQD9////AgAAAAAAAQD7//3/AgAAAAAAAQADAP//AgAAAAAAAQADAAAAAgAAAAAAAQAEAAAAAgAAAAAAAQAGAP7/AgAAAAAAAQAGAP3/AgAAAAAAAQAFAP3/AgAAAAAAAQABAAEAAgAAAAAAAQABAAIAAgAAAAAAAQACAAEAAgAAAAAAAQACAAIAAgAAAAAAAQADAAEAAgAAAAAAAQADAAIAAgAAAAAAAQAEAAEAAgAAAAAAAQAEAAIAAgAAAAAAAQAFAAEAAgAAAAAAAQAFAAIAAgAAAAAAAQAGAAEAAgAAAAAAAQAGAAIAAgAAAAAAAQD8/wIAAgAAAAAAAQD9/wIAAgAAAAAAAQD+/wIAAgAAAAAAAQD//wIAAgAAAAAAAQAAAAIAAgAAAAAAAQD///7/AgAAAAAAAQAAAP7/AgAAAAAAAQABAP7/AgAAAAAAAQACAP7/AgAAAAAAAQABAP//AgAAAAAAAQABAAAAAgAAAAAAAQACAP//AgAAAAAAAQACAAAAAgAAAAAAAQA=")
 tile_set = SubResource("TileSet_j5wjh")
 script = ExtResource("11_8jrr2")
 
+[node name="levels" type="Node2D" parent="." unique_id=1793085453]
+script = ExtResource("10_4ok27")
+
+[node name="current level runner" type="Node2D" parent="levels" unique_id=1384887565]
+script = ExtResource("11_erga3")
+
+[node name="test" type="Node2D" parent="levels/current level runner" unique_id=1003844807]
+
+[node name="routs" type="Node2D" parent="levels/current level runner/test" unique_id=1403116412]
+
+[node name="route" parent="levels/current level runner/test/routs" unique_id=81481899 node_paths=PackedStringArray("start", "end") instance=ExtResource("8_itmro")]
+position = Vector2(649, -84)
+start = NodePath("../../../../paths/path")
+end = NodePath("../../../../paths/path")
+
+[node name="waves" type="Node2D" parent="levels/current level runner/test" unique_id=1543594391]
+
+[node name="wave 1" type="Node2D" parent="levels/current level runner/test/waves" unique_id=1846810703]
+
+[node name="sub wave 1" type="Node2D" parent="levels/current level runner/test/waves/wave 1" unique_id=2032872951]
+
+[node name="enemys" parent="levels/current level runner/test/waves/wave 1/sub wave 1" unique_id=739337238 node_paths=PackedStringArray("route") instance=ExtResource("13_erga3")]
+health = 1
+amount = 30
+time = 1.0
+route = NodePath("../../../../routs/route")
+
+[node name="paths" type="Node2D" parent="levels" unique_id=1948953617]
+
+[node name="path" parent="levels/paths" unique_id=462140554 instance=ExtResource("7_erga3")]
+position = Vector2(-295, -148)
+curve = SubResource("Curve2D_1bvp3")
+
+[node name="path2" parent="levels/paths" unique_id=959915361 node_paths=PackedStringArray("next") instance=ExtResource("7_erga3")]
+position = Vector2(1313, -102)
+curve = SubResource("Curve2D_272bh")
+next = NodePath("../path")
+
+[node name="path3" parent="levels/paths" unique_id=1682914434 instance=ExtResource("7_erga3")]
+position = Vector2(1403, 384)
+
+[node name="template" type="Node2D" parent="levels" unique_id=243163434]
+
+[node name="routs" type="Node2D" parent="levels/template" unique_id=1374460905]
+
+[node name="route" parent="levels/template/routs" unique_id=453652670 node_paths=PackedStringArray("start", "end") instance=ExtResource("8_itmro")]
+position = Vector2(649, -84)
+start = NodePath("../../../paths/path")
+end = NodePath("../../../paths/path")
+
+[node name="waves" type="Node2D" parent="levels/template" unique_id=470814806]
+
+[node name="wave 1" type="Node2D" parent="levels/template/waves" unique_id=143706053]
+
+[node name="sub wave 1" type="Node2D" parent="levels/template/waves/wave 1" unique_id=1230337906]
+
+[node name="enemys" parent="levels/template/waves/wave 1/sub wave 1" unique_id=969869039 instance=ExtResource("13_erga3")]
+
+[node name="Node2D" parent="." unique_id=702602391 instance=ExtResource("14_erga3")]
+
 [connection signal="input_event" from="TileMapLayer2/tileArea" to="TileMapLayer2/tileArea" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23990" to="TileMapLayer2/@Area2D@23990" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23991" to="TileMapLayer2/@Area2D@23991" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23992" to="TileMapLayer2/@Area2D@23992" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23993" to="TileMapLayer2/@Area2D@23993" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23994" to="TileMapLayer2/@Area2D@23994" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23995" to="TileMapLayer2/@Area2D@23995" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23996" to="TileMapLayer2/@Area2D@23996" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23997" to="TileMapLayer2/@Area2D@23997" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23998" to="TileMapLayer2/@Area2D@23998" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@23999" to="TileMapLayer2/@Area2D@23999" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24000" to="TileMapLayer2/@Area2D@24000" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24001" to="TileMapLayer2/@Area2D@24001" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24002" to="TileMapLayer2/@Area2D@24002" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24003" to="TileMapLayer2/@Area2D@24003" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24004" to="TileMapLayer2/@Area2D@24004" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24005" to="TileMapLayer2/@Area2D@24005" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24006" to="TileMapLayer2/@Area2D@24006" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24007" to="TileMapLayer2/@Area2D@24007" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24008" to="TileMapLayer2/@Area2D@24008" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24009" to="TileMapLayer2/@Area2D@24009" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24010" to="TileMapLayer2/@Area2D@24010" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24011" to="TileMapLayer2/@Area2D@24011" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24012" to="TileMapLayer2/@Area2D@24012" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24013" to="TileMapLayer2/@Area2D@24013" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24014" to="TileMapLayer2/@Area2D@24014" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24015" to="TileMapLayer2/@Area2D@24015" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24016" to="TileMapLayer2/@Area2D@24016" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24017" to="TileMapLayer2/@Area2D@24017" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24018" to="TileMapLayer2/@Area2D@24018" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24019" to="TileMapLayer2/@Area2D@24019" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24020" to="TileMapLayer2/@Area2D@24020" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24021" to="TileMapLayer2/@Area2D@24021" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24022" to="TileMapLayer2/@Area2D@24022" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24023" to="TileMapLayer2/@Area2D@24023" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24024" to="TileMapLayer2/@Area2D@24024" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24025" to="TileMapLayer2/@Area2D@24025" method="_on_input_event"]
-[connection signal="input_event" from="TileMapLayer2/@Area2D@24026" to="TileMapLayer2/@Area2D@24026" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19085" to="TileMapLayer2/@Area2D@19085" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19086" to="TileMapLayer2/@Area2D@19086" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19087" to="TileMapLayer2/@Area2D@19087" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19088" to="TileMapLayer2/@Area2D@19088" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19089" to="TileMapLayer2/@Area2D@19089" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19090" to="TileMapLayer2/@Area2D@19090" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19091" to="TileMapLayer2/@Area2D@19091" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19092" to="TileMapLayer2/@Area2D@19092" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19093" to="TileMapLayer2/@Area2D@19093" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19094" to="TileMapLayer2/@Area2D@19094" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19095" to="TileMapLayer2/@Area2D@19095" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19096" to="TileMapLayer2/@Area2D@19096" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19097" to="TileMapLayer2/@Area2D@19097" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19098" to="TileMapLayer2/@Area2D@19098" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19099" to="TileMapLayer2/@Area2D@19099" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19100" to="TileMapLayer2/@Area2D@19100" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19101" to="TileMapLayer2/@Area2D@19101" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19102" to="TileMapLayer2/@Area2D@19102" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19103" to="TileMapLayer2/@Area2D@19103" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19104" to="TileMapLayer2/@Area2D@19104" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19105" to="TileMapLayer2/@Area2D@19105" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19106" to="TileMapLayer2/@Area2D@19106" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19107" to="TileMapLayer2/@Area2D@19107" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19108" to="TileMapLayer2/@Area2D@19108" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19109" to="TileMapLayer2/@Area2D@19109" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19110" to="TileMapLayer2/@Area2D@19110" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19111" to="TileMapLayer2/@Area2D@19111" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19112" to="TileMapLayer2/@Area2D@19112" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19113" to="TileMapLayer2/@Area2D@19113" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19114" to="TileMapLayer2/@Area2D@19114" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19115" to="TileMapLayer2/@Area2D@19115" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19116" to="TileMapLayer2/@Area2D@19116" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19117" to="TileMapLayer2/@Area2D@19117" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19118" to="TileMapLayer2/@Area2D@19118" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19119" to="TileMapLayer2/@Area2D@19119" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19120" to="TileMapLayer2/@Area2D@19120" method="_on_input_event"]
+[connection signal="input_event" from="TileMapLayer2/@Area2D@19121" to="TileMapLayer2/@Area2D@19121" method="_on_input_event"]

@@ -5,9 +5,11 @@ var enemyAreas = null
 var targeted = null
 
 @export var areas: Array[Node]
+@export var timer:Node
 @export var damage: int
 @export var attackTime:int
 @export var cost: int
+var paused:bool = false
 
 @export var ToweRange: int:
 	set(value):
@@ -19,7 +21,12 @@ var targeted = null
 
 var TowerRangeP:int
 
-func setUpTimer(timer):
+func _ready() -> void:
+	global.gamePause.connect(pauseUpdate)
+	paused = global.gamePaused
+	print(paused)
+
+func setUpTimer():
 	timer.wait_time = attackTime
 	timer.start()
 
@@ -51,3 +58,8 @@ func laserAttack(target,line,particles):
 	line.points[1] = to_local(target.global_position)
 	particles.position = to_local(target.global_position)
 	particles.emitting = true
+
+func pauseUpdate(pause):
+	paused = pause
+	timer.paused = pause
+	print(paused)

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bf73m6gyd4vp1"]
+
+[ext_resource type="Script" uid="uid://b6ig25uxvppw6" path="res://scripts/level structures/enemyspawner.gd" id="1_shps6"]
+[ext_resource type="PackedScene" uid="uid://57xk6b05wb8f" path="res://scenes/timer.tscn" id="2_y6qsy"]
+
+[node name="enemys" type="Node2D" unique_id=739337238]
+script = ExtResource("1_shps6")
+type = 1
+
+[node name="timer" parent="." unique_id=1608794204 instance=ExtResource("2_y6qsy")]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

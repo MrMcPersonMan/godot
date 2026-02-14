@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kwraq6r7gwie"
-path="res://.godot/imported/tower defense.apple-touch-icon.png-15fdb3a230eb019cd93bb00d21a2b45b.ctex"
+uid="uid://c1xg22pmiosyn"
+path="res://.godot/imported/pixilart-sprite(10).png-654e349007d476c3874856b1b890fac8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower defense.apple-touch-icon.png"
-dest_files=["res://.godot/imported/tower defense.apple-touch-icon.png-15fdb3a230eb019cd93bb00d21a2b45b.ctex"]
+source_file="res://assets/enemys/pixilart-sprite(10).png"
+dest_files=["res://.godot/imported/pixilart-sprite(10).png-654e349007d476c3874856b1b890fac8.ctex"]
 
 [params]
 

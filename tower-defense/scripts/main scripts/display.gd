@@ -8,6 +8,8 @@ func _ready() -> void:
 	global.moneyUpdate.connect(updateMoney)
 	for button in $Panel/VBoxContainer/ScrollContainer/HBoxContainer.get_children():
 		button.toggled.connect(_on_button_toggled.bind(button))
+	$Panel/VBoxContainer/Panel2/ProgressBar.max_value = global.maxHealth
+	healthbar(global.health)
 
 
 
@@ -22,7 +24,8 @@ func _on_button_toggled(toggled_on: bool, source: BaseButton) -> void:
 		global.selectedTower = source
 		source.set_pressed_no_signal(true)
 	else:
-		source.set_pressed_no_signal(true)
+		source.set_pressed_no_signal(false)
+		_on_cancel()
 
 	
 
@@ -32,14 +35,14 @@ func _on_mouse_changed(extra_arg_0: bool) -> void:
 
 
 func _on_pause(toggled_on: bool) -> void:
-	global.gamePause.emit(toggled_on)
+	global.gamePaused = toggled_on
 
 
 func _on_x2speed_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		global.speedUpdate.emit(2)
+		global.gameSpeed = 2
 	else:
-		global.speedUpdate.emit(1)
+		global.gameSpeed = 1
 		
 func healthbar(health):
 	$Panel/VBoxContainer/Panel2/ProgressBar.value = health
@@ -52,6 +55,6 @@ func _on_cancel() -> void:
 	global.selectedTower = null
 	$Panel/VBoxContainer/cancel.disabled = true
 
-func updateMoney():
+func updateMoney(money):
 	
-	$Panel/VBoxContainer/Panel/HBoxContainer/money.text = str(global.money)
+	$Panel/VBoxContainer/Panel/HBoxContainer/money.text = str(money)

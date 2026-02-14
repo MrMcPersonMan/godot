@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://qo8uchk3sljb"]
+
+[ext_resource type="Script" uid="uid://cfp2twc5qoq0q" path="res://scripts/level structures/spawner.gd" id="1_tbfgm"]
+
+[node name="route" type="Node2D" unique_id=81481899]
+script = ExtResource("1_tbfgm")

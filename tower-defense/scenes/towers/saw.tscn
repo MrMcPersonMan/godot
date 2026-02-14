@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci5qnx5mdqicx"]
+[gd_scene format=3 uid="uid://ci5qnx5mdqicx"]
 
 [ext_resource type="Script" uid="uid://cyakrckm3bwu3" path="res://scripts/towers/saw.gd" id="2_d008l"]
 [ext_resource type="Texture2D" uid="uid://bden4kf7f41vu" path="res://assets/towers/pixilart-sprite(8).png" id="3_4ku6t"]
@@ -99,31 +99,30 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
 radius = 1536.0
 
-[node name="saw" type="Node2D" node_paths=PackedStringArray("areas")]
+[node name="saw" type="Node2D" unique_id=705703565 node_paths=PackedStringArray("areas", "timer")]
 scale = Vector2(-1, -1)
 script = ExtResource("2_d008l")
 defaultScale = Vector2(1.2, 1.2)
 areas = [NodePath("Area2D")]
+timer = NodePath("Timer")
 damage = 1
 attackTime = 5
 ToweRange = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2047978729]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_lmieu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_b8b65")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=746508493]
+libraries/ = SubResource("AnimationLibrary_b8b65")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=223961935]
 wait_time = 2.0
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=936191002]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1486136451]
 shape = SubResource("CircleShape2D_stebd")
 debug_color = Color(0.98, 0, 0.3920001, 0)

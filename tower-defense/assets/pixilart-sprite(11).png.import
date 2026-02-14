@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddxgwhbqpr0y7"
-path="res://.godot/imported/tower defense.icon.png-d2f680f6a5c92445f7d5ad82fd4dde4f.ctex"
+uid="uid://bhshgr1xvfqj6"
+path="res://.godot/imported/pixilart-sprite(11).png-02f46a95b73552cfa6159504db02d471.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tower defense.icon.png"
-dest_files=["res://.godot/imported/tower defense.icon.png-d2f680f6a5c92445f7d5ad82fd4dde4f.ctex"]
+source_file="res://assets/pixilart-sprite(11).png"
+dest_files=["res://.godot/imported/pixilart-sprite(11).png-02f46a95b73552cfa6159504db02d471.ctex"]
 
 [params]
 

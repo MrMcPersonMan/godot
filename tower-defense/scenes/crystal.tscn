@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://dxy4n05ga12l2"]
+
+[ext_resource type="Texture2D" uid="uid://bhshgr1xvfqj6" path="res://assets/pixilart-sprite(11).png" id="1_0mmd5"]
+[ext_resource type="Script" uid="uid://kqk7fqbwx548" path="res://scripts/crystal.gd" id="1_t4dcj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4dcj"]
+atlas = ExtResource("1_0mmd5")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5hse"]
+atlas = ExtResource("1_0mmd5")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhejx"]
+atlas = ExtResource("1_0mmd5")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odwgw"]
+atlas = ExtResource("1_0mmd5")
+region = Rect2(3072, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yorcj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4dcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5hse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhejx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odwgw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_0mmd5"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_t4dcj"]
+resource_name = "first break"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.1, 0.21209091, 0.16903412, -0.4, -0.7351582, 0.36666667, -0.7351582, 0, -0.16666669, 0.29820448, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("AnimatedSprite2D:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3, 2, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.30872637, -0.097043574, 1.1769542, -0.04205969, -0.33466852, 0.04205969, 0.33466852, 1.1378115, -0.024607003, 0.39142537, 0.036251437, -0.57665426, 1, -0.19127363, -0.057901025, 0.13333334, 0),
+"times": PackedFloat32Array(0, 0.43333334, 0.6, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("AnimatedSprite2D:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 3, 3, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1.2552391, -0.057940304, -0.5088528, 0.057940304, 0.5088528, 1.2943817, -0.024606943, 0.31314015, 0.024606943, -0.31314015, 1, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.5, 0.6333333, 1)
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_costume"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g5hse"]
+_data = {
+&"RESET": SubResource("Animation_0mmd5"),
+&"first break": SubResource("Animation_t4dcj")
+}
+
+[node name="Node2D" type="Node2D" unique_id=702602391]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_t4dcj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1303411386]
+sprite_frames = SubResource("SpriteFrames_yorcj")
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=745206492]
+libraries/ = SubResource("AnimationLibrary_g5hse")
